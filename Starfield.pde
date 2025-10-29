@@ -7,7 +7,7 @@ void setup()
   for(int i =0; i < total.length; i++){
     total[i] = new Particle();
   }
-  for(int i = 0; i < (total.length/10); i++){
+  for(int i = 0; i < (total.length/8); i++){
     total[i] = new OddballParticle();
   }
 }
@@ -67,6 +67,12 @@ class OddballParticle extends Particle //inherits from Particle
   void show(){ //oddball
     fill(myColor);
     ellipse((float)myX, (float)myY, 15, 15);
+    if(mousePressed){
+      myX = mouseX;
+      myY= mouseY;
+      myColor = color((int)(Math.random()*200)+56,0,(int)(Math.random()*200)+56);
+      myAngle = (Math.random()*3)*Math.PI;
+    }
   }
 }
 
